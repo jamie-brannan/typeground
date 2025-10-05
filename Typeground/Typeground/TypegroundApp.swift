@@ -10,9 +10,9 @@ import CoreData
 
 @main
 struct TypegroundApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      ContentView()
     }
+  }
 }
