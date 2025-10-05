@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swift-bird" translatesAutoresizingMaskIntoConstraints="NO" id="RAn-ef-edc">
+                                <rect key="frame" x="23.666666666666657" y="195" width="346" height="321"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RAn-ef-edc" secondAttribute="height" multiplier="125:116" id="wSh-IN-gUZ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H2p-VQ-z6d">
+                                <rect key="frame" x="24" y="684" width="345" height="20"/>
+                                <color key="tintColor" systemColor="tertiaryLabelColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="October 2025">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="17" name="SFMono-Light"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txI-N5-7fj">
+                                <rect key="frame" x="24" y="624" width="345" height="28"/>
+                                <color key="tintColor" systemColor="tertiaryLabelColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Typescape">
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="24" name="SFMono-Heavy"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" systemColor="tintColor"/>
+                        <constraints>
+                            <constraint firstItem="RAn-ef-edc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Hkm-fa-BAg"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="H2p-VQ-z6d" secondAttribute="trailing" constant="24" id="VaQ-z1-LMn"/>
+                            <constraint firstItem="H2p-VQ-z6d" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="24" id="Vp4-6O-3Fa"/>
+                            <constraint firstItem="H2p-VQ-z6d" firstAttribute="top" secondItem="txI-N5-7fj" secondAttribute="bottom" constant="32" id="cGQ-5v-Y3x"/>
+                            <constraint firstItem="txI-N5-7fj" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="24" id="qeM-zZ-Bu5"/>
+                            <constraint firstItem="txI-N5-7fj" firstAttribute="top" secondItem="RAn-ef-edc" secondAttribute="bottom" constant="108" id="s3m-Eh-Ul0"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="bottom" secondItem="H2p-VQ-z6d" secondAttribute="bottom" constant="80" id="u9f-89-HR9"/>
+                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="txI-N5-7fj" secondAttribute="trailing" constant="24" id="xzc-fQ-wcR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="swift-bird" width="346" height="313"/>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.29803921570000003" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
