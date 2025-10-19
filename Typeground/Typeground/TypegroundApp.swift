@@ -12,7 +12,9 @@ import CoreData
 struct TypegroundApp: App {
   var body: some Scene {
     WindowGroup {
-      ContentView()
+      NavigationStack {
+        ContentView()
+      }
     }
   }
 }
