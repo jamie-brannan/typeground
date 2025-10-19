@@ -25,7 +25,7 @@ extension ToolbarItem {
     var placement: ToolbarItemPlacement {
       switch self {
       case .settings: return .navigationBarTrailing
-      case .info: return .navigationBarLeading
+      case .info: return .navigationBarTrailing
       }
     }
 

@@ -9,6 +9,20 @@ import SwiftUI
 
 struct SettingsView: View {
   var body: some View {
-    Text("Settings")
+    List {
+      Text("Coming soon")
+    }
+    .listStyle(.insetGrouped)
+    .navigationTitle("Settings")
+    .navigationSubtitle("Work in progress")
+    .toolbar {
+      ToolbarItem.fromUseCase(.info)
+    }
+  }
+}
+
+#Preview {
+  NavigationStack {
+    SettingsView()
   }
 }
