@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		11799FB32EA5196E003B2E5B /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 11799FB22EA5196E003B2E5B /* DesignSystem */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		119E75A12E925DBA00A0E3D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11799FB32EA5196E003B2E5B /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +77,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11799FB12EA5196E003B2E5B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		119E75852E925DB900A0E3D9 = {
 			isa = PBXGroup;
 			children = (
 				119E75902E925DB900A0E3D9 /* Typeground */,
 				119E75A32E925DBA00A0E3D9 /* TypegroundTests */,
 				119E75AD2E925DBA00A0E3D9 /* TypegroundUITests */,
+				11799FB12EA5196E003B2E5B /* Frameworks */,
 				119E758F2E925DB900A0E3D9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,6 +125,7 @@
 			);
 			name = Typeground;
 			packageProductDependencies = (
+				11799FB22EA5196E003B2E5B /* DesignSystem */,
 			);
 			productName = Typeground;
 			productReference = 119E758E2E925DB900A0E3D9 /* Typeground.app */;
@@ -621,6 +635,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		11799FB22EA5196E003B2E5B /* DesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DesignSystem;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 119E75862E925DB900A0E3D9 /* Project object */;
 }

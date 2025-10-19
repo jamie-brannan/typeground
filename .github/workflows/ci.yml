@@ -1,0 +1,60 @@
+name: CI
+on:
+  push: { branches: [ main, develop ] }
+  pull_request: { branches: [ main, develop ] }
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: maxim-lobanov/setup-xcode@v1
+        with: { xcode-version: latest-stable }
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Developer/Xcode/DerivedData
+            ~/.swiftpm
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: ${{ runner.os }}-spm-
+      - name: Build & Test (workspace)
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -workspace "Typeground.xcworkspace" \
+            -scheme "Typeground" \
+            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -enableCodeCoverage YES \
+            clean test | xcpretty && exit ${PIPESTATUS[0]}
+
+  lint:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: SwiftLint + SwiftFormat
+        run: |
+          brew install swiftlint || true
+          brew install swiftformat || true
+          swiftlint --strict
+          swiftformat --lint .
+
+  docs:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: maxim-lobanov/setup-xcode@v1
+        with: { xcode-version: latest-stable }
+      - name: DocC build
+        run: |
+          xcodebuild docbuild \
+            -workspace "Typeground.xcworkspace" \
+            -scheme "Typeground" \
+            -destination 'generic/platform=iOS' | xcpretty
