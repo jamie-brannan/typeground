@@ -1,7 +1,10 @@
-name: CI
+name: Mergable
 on:
   push: { branches: [ main, develop ] }
   pull_request: { branches: [ main, develop ] }
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch: {}   # ← enables the button
+
 
 permissions:
   contents: read
@@ -13,6 +16,8 @@ concurrency:
 
 jobs:
   build-test:
+    # run on push, non-draft PRs, and manual runs
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.pull_request.draft == false
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
@@ -31,11 +36,13 @@ jobs:
           xcodebuild \
             -workspace "Typeground.xcworkspace" \
             -scheme "Typeground" \
-            -destination 'platform=iOS Simulator,name=iPhone 15' \
+            -destination 'platform=iOS Simulator,name=iPhone 16e' \
             -enableCodeCoverage YES \
             clean test | xcpretty && exit ${PIPESTATUS[0]}
 
   lint:
+    # run on push, non-draft PRs, and manual runs
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.pull_request.draft == false
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
@@ -47,6 +54,8 @@ jobs:
           swiftformat --lint .
 
   docs:
+    # run on push, non-draft PRs, and manual runs
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.pull_request.draft == false
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
