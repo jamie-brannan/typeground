@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "5C9C8D0F-383C-4187-9464-F7BFF9559714",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Typeground.xcodeproj",
+      "identifier" : "119E758D2E925DB900A0E3D9",
+      "name" : "Typeground"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Typeground.xcodeproj",
+        "identifier" : "119E759F2E925DBA00A0E3D9",
+        "name" : "TypegroundTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:Typeground.xcodeproj",
+        "identifier" : "119E75A92E925DBA00A0E3D9",
+        "name" : "TypegroundUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
