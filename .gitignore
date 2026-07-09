@@ -60,3 +60,25 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# --- Security: never commit signing or private keys ---
+*.p12
+*.mobileprovision
+*.p8
+*.cer
+*.der
+*.pem
+*.csr
+*.key
+
+# --- Build artifacts you don’t want in git ---
+*.xcarchive
+*.xcresult
+build/
+DerivedData/
+
+# --- Fastlane volatile auth/state ---
+fastlane/session
+
+# --- Misc noise ---
+.DS_Store
