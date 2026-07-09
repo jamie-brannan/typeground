@@ -1,0 +1,8 @@
+included:
+  - DesignSystem
+  - Typeground
+
+excluded:
+  - .build
+  - Typeground.xcworkspace
+

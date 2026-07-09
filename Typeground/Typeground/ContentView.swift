@@ -6,13 +6,25 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct ContentView: View {
+
   var body: some View {
-    Text("Typeground")
+    VStack {
+      Text("Typeground")
+      TextingBridge()
+    }
+    .navigationTitle("Welcome Typeheads")
+    .toolbar {
+      ToolbarItem.fromUseCase(.settings)
+    }
+    .toolbarRole(.navigationStack)
   }
 }
 
 #Preview {
-  ContentView()
+  NavigationStack {
+    ContentView()
+  }
 }
