@@ -37,7 +37,7 @@ jobs:
           xcodebuild \
             -workspace "Typeground.xcworkspace" \
             -scheme "Typeground" \
-            -destination 'platform=iOS Simulator,name=iPhone 16e' \
+            -destination 'platform=iOS Simulator,name=Any iOS Simulator Device' \
             -enableCodeCoverage YES \
             clean test | xcpretty && exit ${PIPESTATUS[0]}
       - name: Save .xcresult
@@ -57,7 +57,7 @@ jobs:
         run: |
           brew install swiftlint || true
           brew install swiftformat || true
-          swiftlint --strict
+          swiftlint --strict --no-cache
           swiftformat --lint .
 
   docs:

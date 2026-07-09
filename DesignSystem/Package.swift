@@ -12,7 +12,7 @@ let package = Package(
         .library(
             name: "DesignSystem",
             targets: ["DesignSystem"]
-        ),
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/SimplyDanny/SwiftLintPlugins.git", from: "0.62.2")
@@ -21,12 +21,12 @@ let package = Package(
         .target(
             name: "DesignSystem",
             plugins: [
-                .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins"),
+                .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins")
             ]
         ),
         .testTarget(
             name: "DesignSystemTests",
             dependencies: ["DesignSystem"]
-        ),
+        )
     ]
 )
