@@ -25,7 +25,6 @@ let package = Package(
             name: "DesignSystem",
             plugins: [
                 .plugin(name: "SwiftLintBuildToolPlugin", package: "SwiftLintPlugins"),
-                .plugin(name: "SwiftLintCommandPlugin", package: "SwiftLintPlugins")
             ]
         ),
         .testTarget(
