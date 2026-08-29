@@ -12,8 +12,6 @@ struct ContentView: View {
 
   var body: some View {
     VStack {
-      Text("Typeground")
-      TextingBridge()
     }
     .navigationTitle("Welcome Typeheads")
     .toolbar {
