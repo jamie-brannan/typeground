@@ -126,7 +126,6 @@
 				119E758A2E925DB900A0E3D9 /* Sources */,
 				119E758B2E925DB900A0E3D9 /* Frameworks */,
 				119E758C2E925DB900A0E3D9 /* Resources */,
-				11F123E930004BAE00BA0863 /* Run Script, SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -259,28 +258,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		11F123E930004BAE00BA0863 /* Run Script, SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script, SwiftLint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			alwaysOutOfDate = 1;
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\n\nif command -v swiftlint >/dev/null; then\n  swiftlint --strict --no-cache --config .swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed. Install with: brew install swiftlint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		119E758A2E925DB900A0E3D9 /* Sources */ = {
