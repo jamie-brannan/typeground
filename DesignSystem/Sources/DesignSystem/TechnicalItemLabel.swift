@@ -21,7 +21,7 @@ public struct TechnicalItem: LabelStyle {
   // MARK: Additional content
   let codeSnippet: String?
 
-  init (
+  public init (
     _ codeSnipet: String? = nil,
     iconStyle: any ShapeStyle = .tint,
     iconLabelSpacing: CGFloat = 8,
