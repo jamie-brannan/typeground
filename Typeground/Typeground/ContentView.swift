@@ -11,17 +11,31 @@ import DesignSystem
 struct ContentView: View {
 
   // MARK: Content
+  let displayingText: [ListItem] = [
+    .init(
+      "Static text box",
+      "struct Text",
+      Image.init(systemName: "character.textbox")
+    ),
+    .init(
+      "Text box with an image or icon",
+      "struct Label",
+      Image.init(systemName: "text.below.photo")
+    ),
+    .init(
+      "Make a custom label style",
+      "func labelStyle<S>(S) -> some View",
+      Image.init(systemName: "paintbrush")
+    ),
+  ]
 
   var body: some View {
     VStack {
       List {
         Section(header: Text("Displaying Text")) {
-          Label("Static text box", systemImage: "character.textbox")
-            .labelStyle(TechnicalItem("struct Text"))
-          Label("Text box with an image or icon", systemImage: "text.below.photo")
-            .labelStyle(TechnicalItem("struct Label"))
-          Label("Make a custom label style", systemImage: "paintbrush")
-            .labelStyle(TechnicalItem("func labelStyle<S>(S) -> some View"))
+          ForEach(displayingText) { text in
+            makeTechLabeL(text)
+          }
         }
         Section(header: Text("Section 2")) {
           Text("Row 1")
@@ -36,8 +50,12 @@ struct ContentView: View {
     .toolbarRole(.navigationStack)
   }
 
-  func makeTechLabeL(_ item: TechnicalItem) -> some View {
-    Label
+  func makeTechLabeL(_ item: ListItem) -> some View {
+    Label(
+      title: { Text(item.title) },
+      icon: { item.image }
+    )
+      .labelStyle(TechnicalItem(item.codeSnippet))
   }
 }
 
