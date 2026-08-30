@@ -9,6 +9,8 @@ import SwiftUI
 
 public struct TechnicalItem: LabelStyle {
 
+  @Environment(\.isEnabled) private var isEnabled
+
   // MARK: - Properties
 
   // MARK: Visuals
@@ -26,7 +28,7 @@ public struct TechnicalItem: LabelStyle {
     iconStyle: any ShapeStyle = .tint,
     iconLabelSpacing: CGFloat = 8,
     textSpacing: CGFloat = 4,
-    snippetStyle: any ShapeStyle = .tint,
+    snippetStyle: any ShapeStyle = .secondary,
     snippetIndent: CGFloat = 4
   ) {
     self.codeSnippet = codeSnipet
@@ -40,13 +42,13 @@ public struct TechnicalItem: LabelStyle {
   public func makeBody(configuration: Configuration) -> some View {
     HStack(alignment: .top, spacing: iconLabelSpacing) {
       configuration.icon
-        .foregroundStyle(.tint)
+        .foregroundStyle(isEnabled ? AnyShapeStyle(iconStyle) : AnyShapeStyle(.secondary))
       VStack(alignment: .leading, spacing: textSpacing) {
         configuration.title
         if let codeSnippet {
           Text("`\(codeSnippet)`")
             .font(.caption2)
-            .foregroundStyle(.secondary)
+            .foregroundStyle(snippetStyle)
             .padding(.leading, snippetIndent)
         }
       }
