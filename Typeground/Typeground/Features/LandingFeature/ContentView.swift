@@ -7,41 +7,35 @@
 
 import SwiftUI
 import DesignSystem
+import Combine
 
 struct ContentView: View {
 
-  // MARK: Content
-  let displayingText: [ListItem] = [
-    .init(
-      "Static text box",
-      "struct Text",
-      Image.init(systemName: "character.textbox")
-    ),
-    .init(
-      "Text box with an image or icon",
-      "struct Label",
-      Image.init(systemName: "text.below.photo")
-    ),
-    .init(
-      "Make a custom label style",
-      "func labelStyle<S>(S) -> some View",
-      Image.init(systemName: "paintbrush")
-    ),
-  ]
+  @ObservedObject private var viewModel: ContentViewModel
+
+  init(viewModel: ContentViewModel) {
+    self.viewModel = viewModel
+  }
 
   var body: some View {
     VStack {
       List {
         Section(header: Text("Displaying Text")) {
-          ForEach(displayingText) { text in
-            makeTechLabeL(text)
+          ForEach(viewModel.displayingText, id: \.self) { feature in
+            if feature.destination(for: feature) is SwiftUICore.EmptyView {
+              makeTechLabel(feature.listItem)
+                .disabled(true)
+            } else {
+              NavigationLink(value: feature) {
+                makeTechLabel(feature.listItem)
+              }
+            }
           }
         }
-        Section(header: Text("Section 2")) {
-          Text("Row 1")
-          Text("Row 2")
-        }
       }
+    }
+    .navigationDestination(for: ContentViewModel.Feature.self) { feature in
+      feature.destination(for: feature)
     }
     .navigationTitle("Welcome Typeheads")
     .toolbar {
@@ -50,9 +44,11 @@ struct ContentView: View {
     .toolbarRole(.navigationStack)
   }
 
+
+
   // ???: https://developer.apple.com/documentation/swiftui/labelstyleconfiguration maybe instead for get code snippet addition
   // TODO: Next look at buttons
-  func makeTechLabeL(_ item: ListItem) -> some View {
+  func makeTechLabel(_ item: ListItem) -> some View {
     Label(
       title: { Text(item.title) },
       icon: { item.image }
@@ -65,6 +61,6 @@ struct ContentView: View {
 @available(iOS 17)
 #Preview("Singular, default initializer", traits: .sizeThatFitsLayout) {
   NavigationStack {
-    ContentView()
+    ContentView(viewModel: ContentViewModel())
   }
 }

@@ -13,7 +13,7 @@ struct TypegroundApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationStack {
-        ContentView()
+        ContentView(viewModel: ContentViewModel())
       }
     }
   }
