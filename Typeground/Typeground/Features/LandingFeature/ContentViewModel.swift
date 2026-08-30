@@ -25,6 +25,15 @@ class ContentViewModel: ObservableObject {
       }
     }
 
+    var isImplemented: Bool {
+      switch self {
+      case .displayText:
+        true
+      case .labelWithIcon, .customLabelStyle:
+        false
+      }
+    }
+
     @ViewBuilder
     func destination(for feature: Feature) -> some View {
       switch feature {

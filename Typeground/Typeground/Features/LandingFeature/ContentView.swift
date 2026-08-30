@@ -22,13 +22,13 @@ struct ContentView: View {
       List {
         Section(header: Text("Displaying Text")) {
           ForEach(viewModel.displayingText, id: \.self) { feature in
-            if feature.destination(for: feature) is SwiftUICore.EmptyView {
-              makeTechLabel(feature.listItem)
-                .disabled(true)
-            } else {
+            if feature.isImplemented {
               NavigationLink(value: feature) {
                 makeTechLabel(feature.listItem)
               }
+            } else {
+              makeTechLabel(feature.listItem)
+                .disabled(true)
             }
           }
         }
