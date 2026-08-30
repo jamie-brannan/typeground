@@ -51,6 +51,7 @@ extension ToolbarItem where ID == String, Content == NavigationLink<Label<Text, 
   /// Build a toolbar item from a known use case.
   static func fromUseCase(_ useCase: ToolbarItem.UseCases) -> ToolbarItem {
     return ToolbarItem(id: useCase.id, placement: useCase.placement) {
+      // ???: I really don't remember deciding this stuff
       NavigationLink(destination: AnyView(useCase.destination)) {
         Label(useCase.title, systemImage: useCase.systemImage)
       }

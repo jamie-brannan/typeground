@@ -50,6 +50,8 @@ struct ContentView: View {
     .toolbarRole(.navigationStack)
   }
 
+  // ???: https://developer.apple.com/documentation/swiftui/labelstyleconfiguration maybe instead for get code snippet addition
+  // TODO: Next look at buttons
   func makeTechLabeL(_ item: ListItem) -> some View {
     Label(
       title: { Text(item.title) },
