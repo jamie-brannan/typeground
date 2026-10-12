@@ -5,6 +5,7 @@
 //  Created by Jamie Brannan on 30/08/2026.
 //
 
+import DesignSystem
 import SwiftUI
 
 struct DisplayTextView: View {
@@ -15,9 +16,32 @@ struct DisplayTextView: View {
   }
 
   var body: some View {
-    Text(viewModel.title)
-      .padding()
-      .background(Color.white)
-      .cornerRadius(8)
+    VStack(alignment: .leading, spacing: 24) {
+      CodeObjectHeaderView(
+        objectType: "Structure",
+        name: "Text",
+        tagline: "A view that displays one or more lines of read-only text."
+      )
+      // TODO: Link directly to the developer documentation at apple for this - maybe via a toolbar button on the page itself?
+
+      // TODO: Make an "FYI" for designers with google search keywords to run in their search engines by default on their device
+      Text("⚠️ Background knowledge of how string markup works in programming globally for designers")
+
+      List {
+        // TODO: see if I can have a header that has a header + body text?
+        Section(header: Text("Creating a text view")) {
+          FunctionSignatureView("init(_:)", description: "Creates a text view that displays styled attributed content.")
+          // ???: Truncate and/or make trailing for display purposes
+          Text("`init(LocalizedStringKey, tableName: String?, bundle: Bundle?, comment: StaticString?)`")
+        }
+      }.listStyle(.plain)
+
+      Spacer()
+    }
+    .padding(16)
   }
+}
+
+#Preview {
+  DisplayTextView(viewModel: DisplayTextViewModel())
 }
