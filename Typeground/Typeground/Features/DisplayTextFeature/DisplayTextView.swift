@@ -8,6 +8,7 @@
 import DesignSystem
 import SwiftUI
 
+// TODO: Factor out to be a template for intersections code objects
 struct DisplayTextView: View {
   var viewModel: DisplayTextViewModel
 
@@ -25,7 +26,10 @@ struct DisplayTextView: View {
       // TODO: Link directly to the developer documentation at apple for this - maybe via a toolbar button on the page itself?
 
       // TODO: Make an "FYI" for designers with google search keywords to run in their search engines by default on their device
-      Text("⚠️ Background knowledge of how string markup works in programming globally for designers")
+      Text("⚠️ **Editorial needed** : Background knowledge of how string markup works in programming globally for designers")
+        .padding(16)
+        .background(.orange)
+        .cornerRadius(8)
 
       List {
         // TODO: see if I can have a header that has a header + body text?
@@ -39,6 +43,11 @@ struct DisplayTextView: View {
       Spacer()
     }
     .padding(16)
+    .toolbar {
+      if let officialDocumentation = viewModel.officialDocumentation {
+        ToolbarItem.buttonToGoToOfficialSite(for: officialDocumentation)
+      }
+    }
   }
 }
 

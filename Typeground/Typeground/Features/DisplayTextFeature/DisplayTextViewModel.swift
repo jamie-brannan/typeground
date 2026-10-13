@@ -11,4 +11,5 @@ import Combine
 // ???: State object or Observable object? What if I want to save data to iCloud or just locally? Or different states of this from projects
 class DisplayTextViewModel: ObservableObject {
   var title: String = "Display Text"
+  var officialDocumentation: URL? = URL(string: "https://developer.apple.com/documentation/swiftui/text")
 }
